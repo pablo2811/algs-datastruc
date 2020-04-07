@@ -1,8 +1,8 @@
-import matplotlib.pyplot as plt,random,graph,Dijkstra,BellmanFord
+import matplotlib.pyplot as plt,random,GRAPHS,Dijkstra,BellmanFord
 
 
 def comparisionDJBF():
-    g = graph.DirectedGraph()
+    g = GRAPHS.DirectedGraph()
     t_bf = []
     t_dik = []
     for n in range(10,5000,80):

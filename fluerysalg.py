@@ -1,4 +1,4 @@
-import copy,DFS,graph
+import copy,DFS
 
 # note that this fluerysalg implementation can be ONLY used for undirected graphs!!!
 
@@ -34,17 +34,6 @@ def fleurysalg(g,starter):
                     g_copy.add_edge(acc,el,c)
     return path
 
-g = graph.DirectedGraph()
-
-g.add_edge(1,2)
-g.add_edge(2,1)
-g.add_edge(2,3)
-g.add_edge(3,2)
-g.add_edge(4,3)
-g.add_edge(3,4)
-g.add_edge(4,1)
-g.add_edge(1,4)
-print(fleurysalg(g,1))
 
 
 
