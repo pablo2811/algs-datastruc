@@ -2,6 +2,8 @@ from abc import abstractmethod
 
 
 class Graph:
+
+
     @abstractmethod
     def add_edge(self, a, b, w=1):
         pass
@@ -17,6 +19,7 @@ class Graph:
     @abstractmethod
     def __getitem__(self, item):
         pass
+
 
 
 class DirectedGraph(Graph):
@@ -66,6 +69,17 @@ class DirectedGraph(Graph):
     def hasneib(self, a):
         return a in self.g.keys()
 
+    def reverse_edges(self):
+        g = DirectedGraph()
+        for e in self.edges:
+            g.add_edge(e[1],e[0],self.weight(e))
+        return g
+
+    def anyvertice(self):
+        for el in self.nodes:
+            return el
+
+
 
 class UndirectedGraph(Graph):
 
@@ -101,6 +115,7 @@ class UndirectedGraph(Graph):
         self.edges.remove((a, b))
         del self.weights[(a, b)]
 
+
     def edgesnumber(self):
         return len(self.edges)
 
@@ -111,6 +126,9 @@ class UndirectedGraph(Graph):
         return self.edges
 
     def weight(self, e):
+        q = (e[1],e[0])
+        if e not in self.weights.keys():
+            return self.weights[q]
         return self.weights[e]
 
     def __getitem__(self, item):
@@ -121,6 +139,10 @@ class UndirectedGraph(Graph):
 
     def hasneib(self, a):
         return a in self.g.keys()
+
+    def anyvertice(self):
+        for el in self.nodes:
+            return el
 
 
 class Tree(Graph):
@@ -191,6 +213,12 @@ class Tree(Graph):
             M = max(M, count[k])
         return M
 
+    def set_edge_sum(self,s):
+        self.edge_sum = s
+
+    def anyvertice(self):
+        for el in self.nodes:
+            return el
 
 
 

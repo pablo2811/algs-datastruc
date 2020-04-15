@@ -19,12 +19,12 @@ def fleurysalg(g,starter):
             g_copy.remove_edge(w[0],acc)
             acc = w[0]
         else:
-            reachable = DFS.DFS(g_copy,acc)
+            reachable = DFS.dfs(g_copy,acc)
             for el in w:
                 c = g_copy.weight((acc,el))
                 g_copy.remove_edge(acc,el)
                 g_copy.remove_edge(el,acc)
-                now_reachable = DFS.DFS(g_copy,acc)
+                now_reachable = DFS.dfs(g_copy,acc)
                 if reachable == now_reachable:
                     path.append(el)
                     acc = el

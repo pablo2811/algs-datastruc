@@ -1,4 +1,4 @@
-import GRAPHS
+import GRAPHS,time
 
 def search(st,end,t):
 
@@ -14,6 +14,7 @@ def search(st,end,t):
 
 def minspantree(g):
 
+    ti = time.time()
     t = GRAPHS.Tree()
     for nd in g.nodes:
         t.add_vertice(nd)
@@ -29,10 +30,7 @@ def minspantree(g):
         min_sum += g.weight(edges_sorted[j])
         j += 1
     print(min_sum)
-    return t
 
+    return time.time() - ti
 
-
-
-minspantree(g)
 

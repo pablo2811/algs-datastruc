@@ -1,23 +1,26 @@
 
-def DFS(gr,node):
+def dfs(gr,node,returnset=False,processed=False):
     # EXEMPLARY DFS IMPLEMENTATION
     visited = dict()
     for nd in gr.nodes:
         visited[nd] = 0
 
     def DFSutil(current):
-        if visited[current]:
-            visited[current] = 1
-            return
-        else:
-            # here we can add processing of node
-            visited[current] = 1
-            if gr.hasneib(current):
-                for nei in gr[current]:
-                   DFSutil(nei)
+        # here we can add processing of node
+        visited[current] = 1
+        if gr.hasneib(current):
+            for nei in gr[current]:
+                if (not processed or nei not in processed) and not visited[nei]:
+                    DFSutil(nei)
     DFSutil(node)
-    res = []
+    if returnset:
+        res = set()
+    else:
+        res = []
     for key in visited.keys():
         if visited[key] == 1:
-            res.append(key)
+            if returnset:
+                res.add(key)
+            else:
+                res.append(key)
     return res
