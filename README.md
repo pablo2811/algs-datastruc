@@ -10,7 +10,7 @@ This includes:
 * time comparisions 
 * few more
 
-#Author
+# Author
 _Paweł Fijałkowski_  
 _Data Science_  
 _Warsaw University of Technology_
