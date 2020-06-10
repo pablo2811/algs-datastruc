@@ -1,6 +1,6 @@
 # algs-datastruc
 # About
-Own implementation of most intresting/useful graph algorithms with optimazations.  
+Own implementation of most intresting/useful graph algorithms with optimizations.  
 This includes:  
 * BFS/DFS (search)
 * Bellman-Ford/Dijsktra/Floyd-Warshall (shortest paths)
